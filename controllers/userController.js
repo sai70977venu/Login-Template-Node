@@ -39,7 +39,8 @@ const registerUser = async (req, res) => {
                 res.send({ 'message':1 });
             })
             .catch((err) => {
-                res.status(500).send({ 'message':0 });
+                res.status(500).send({ 'message':0,
+                    err });
             });
     }
 }
