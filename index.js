@@ -10,7 +10,6 @@ const users = require('./routes/users');
 
 app.use(bodyparser.json());
 app.use(cors());
-app.use(compression());
 
 mongoose
     .connect(process.env.MONGO_URI, {
