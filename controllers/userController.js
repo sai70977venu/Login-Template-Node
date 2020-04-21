@@ -13,6 +13,7 @@ const loginUser = async (req, res) => {
             res.send({
                 token: token,
                 name: user.name,
+                is_merchant: user.is_merchant,
                 'message':1
             });
         }
