@@ -4,15 +4,16 @@ const bcrypt = require('bcrypt');
 
 const loginUser = async (req, res) => {
     let user = await User.findOne({ email:req.body.email });
-    if(!user) res.status(400).send("Invalid Email or password");
+    if(!user) res.status(400).send({ 'message':0 });
     else {
         const validPassword = await bcrypt.compare(req.body.password, user.password);
-        if(!validPassword) res.status(400).send("Invalid Email or password");
+        if(!validPassword) res.status(400).send({ 'message':0 });
         else {
             const token = user.generateAuthToken();
             res.send({
                 token: token,
-                name: user.name
+                name: user.name,
+                'message':1
             });
         }
     }
