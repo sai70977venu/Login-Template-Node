@@ -12,6 +12,7 @@ const loginUser = async (req, res) => {
             const token = user.generateAuthToken();
             res.send({
                 token: token,
+                id: user._id,
                 name: user.name,
                 is_merchant: user.is_merchant,
                 'message':1
